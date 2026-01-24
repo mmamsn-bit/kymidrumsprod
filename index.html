@@ -9,6 +9,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;900&display=swap');
         h1, h2, h3 { font-family: 'Oswald', sans-serif; }
         body { background-color: #000; color: white; font-family: 'Inter', sans-serif; margin: 0; }
+        .text-neon { text-shadow: 0 0 15px rgba(220,38,38,0.6); }
     </style>
 </head>
 <body>
@@ -36,7 +37,61 @@
     </header>
 
     <section class="py-24 bg-black">
-        <div class="max-w-6xl mx-auto px-6 text-center">
+        <div class="max-w-6xl mx-auto px-6 text-center text-neon">
             <h2 class="text-4xl font-black uppercase italic mb-12 tracking-tight">Latest <span class="text-red-600">Drum Cam</span></h2>
             <div class="max-w-4xl mx-auto aspect-video bg-zinc-900 rounded-3xl overflow-hidden border border-red-600/30 shadow-[0_0_60px_rgba(220,38,38,0.15)]">
-                <iframe class
+                <iframe class="w-full h-full" src="https://www.youtube.com/embed/ZzJjxT-vb3Q" title="Kymi Drummer Live" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-zinc-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-5xl font-black uppercase italic mb-16 text-center tracking-tight">The <span class="text-red-600">Gear</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="p-10 border border-white/5 rounded-3xl bg-black/40 hover:border-red-600/30 transition duration-500 shadow-xl">
+                    <h3 class="text-red-600 text-2xl font-bold uppercase mb-6 tracking-widest border-b border-red-600/20 pb-2">Drum Kit & Hardware</h3>
+                    <p class="text-white font-black text-xl mb-4 uppercase italic">Mapex Mars Pro Kit</p>
+                    <ul class="text-zinc-400 text-sm space-y-3 uppercase font-medium tracking-wide">
+                        <li>• Snare: <span class="text-white">14" x 6.5 Sonor 4000 White Edition Pro</span></li>
+                        <li>• Toms: <span class="text-white">10" / 12" / 16"</span></li>
+                        <li>• Bass Drum: <span class="text-white">22"</span></li>
+                        <li>• Pedal: <span class="text-white">Double Pédale DW 5002</span></li>
+                    </ul>
+                </div>
+
+                <div class="p-10 border border-white/5 rounded-3xl bg-black/40 hover:border-red-600/30 transition duration-500 shadow-xl">
+                    <h3 class="text-red-600 text-2xl font-bold uppercase mb-6 tracking-widest border-b border-red-600/20 pb-2">Cymbals Set</h3>
+                    <ul class="text-zinc-400 text-sm space-y-3 uppercase font-medium tracking-wide">
+                        <li>• Hi-Hat 14": <span class="text-white">Sabian AA Rock</span></li>
+                        <li>• 2x Crash 16": <span class="text-white">Zildjian A Custom</span></li>
+                        <li>• Ride 22": <span class="text-white">Sabian AA</span></li>
+                        <li>• China 18": <span class="text-white">Sabian AA</span></li>
+                        <li>• Splash 12": <span class="text-white">Zildjian A Custom</span></li>
+                        <li>• Splash 10": <span class="text-white">Sabian AA</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-24 text-center bg-black border-t border-zinc-900">
+        <div class="max-w-4xl mx-auto px-4">
+            <img src="kymi.png" class="h-24 mx-auto opacity-50 mb-8" alt="Kymi Logo">
+            <div class="space-y-4 text-center">
+                <p class="text-zinc-500 text-[10px] uppercase tracking-[0.6em] font-bold italic">© 2026 KYMIDRUMSPROD | KYMI DRUMMER</p>
+                <div class="flex flex-wrap justify-center gap-6 text-[9px] uppercase tracking-widest text-zinc-600">
+                    <p>Session Work</p>
+                    <span class="text-red-600">•</span>
+                    <p>Live Performance</p>
+                    <span class="text-red-600">•</span>
+                    <p>Drum Coaching</p>
+                </div>
+                <p class="text-zinc-700 text-[9px] uppercase tracking-[0.4em] pt-4 italic">Contact: liquidten8072403@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
