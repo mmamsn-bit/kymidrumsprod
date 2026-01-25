@@ -11,9 +11,32 @@
         body { background-color: #000; color: white; font-family: 'Inter', sans-serif; margin: 0; padding: 0; overflow-x: hidden; }
         .text-neon { text-shadow: 0 0 15px rgba(220,38,38,0.6); }
         
-        /* Style pour l'effet de zoom fluide sur les photos */
-        .zoom-img { transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
-        .zoom-img:hover { transform: scale(1.15); z-index: 10; }
+        /* CORRECTIF POUR L'EFFET DE ZOOM */
+        .img-container {
+            position: relative;
+            z-index: 1;
+            transition: z-index 0s;
+        }
+        
+        .zoom-img { 
+            transition: transform 0.4s ease, filter 0.3s ease;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        /* Quand on approche la souris : l'image grossit et passe au-dessus des autres */
+        .img-container:hover {
+            z-index: 50; /* Passe au premier plan */
+        }
+        
+        .img-container:hover .zoom-img { 
+            transform: scale(1.5); /* Agrandissement à 150% */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+            filter: grayscale(0%);
+        }
+
+        /* Optionnel : mettre les photos en gris par défaut pour le style */
+        .zoom-img { filter: grayscale(40%); }
     </style>
 </head>
 <body>
@@ -24,7 +47,7 @@
         </div>
 
         <div class="relative z-10">
-            <h1 class="text-7xl md:text-9xl uppercase italic font-black tracking-tighter mb-4 text-white italic leading-tight">KYMI <span class="text-red-600">DRUMMER</span></h1>
+            <h1 class="text-7xl md:text-9xl uppercase italic font-black tracking-tighter mb-4 text-white leading-tight">KYMI <span class="text-red-600">DRUMMER</span></h1>
             <p class="text-xl md:text-2xl tracking-[0.6em] font-light text-zinc-400 uppercase mb-12 italic">Performance • Session • Production</p>
             
             <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
@@ -34,7 +57,7 @@
             </div>
         </div>
 
-        <div class="absolute inset-0 z-0 text-center">
+        <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-gradient-to-b from-black via-black/40 to-black z-10"></div>
             <div class="w-full h-full bg-zinc-900 opacity-20"></div>
         </div>
@@ -42,39 +65,21 @@
 
     <section class="py-24 bg-black relative z-20">
         <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-4xl font-black uppercase italic mb-12 tracking-tight text-center">The <span class="text-red-600">Gallery</span></h2>
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
-                <div class="overflow-hidden rounded-lg border border-white/10 bg-zinc-900">
-                    <img src="kymi1.jpeg" alt="Kymi 1" class="zoom-img w-full h-48 object-cover">
-                </div>
-                <div class="overflow-hidden rounded-lg border border-white/10 bg-zinc-900">
-                    <img src="kymi2.jpg" alt="Kymi 2" class="zoom-img w-full h-48 object-cover">
-                </div>
-                <div class="overflow-hidden rounded-lg border border-white/10 bg-zinc-900">
-                    <img src="kymi3.jpg" alt="Kymi 3" class="zoom-img w-full h-48 object-cover">
-                </div>
-                <div class="overflow-hidden rounded-lg border border-white/10 bg-zinc-900">
-                    <img src="kymi4.jpg" alt="Kymi 4" class="zoom-img w-full h-48 object-cover">
-                </div>
-                <div class="overflow-hidden rounded-lg border border-white/10 bg-zinc-900">
-                    <img src="kymi5.jpeg" alt="Kymi 5" class="zoom-img w-full h-48 object-cover">
-                </div>
-                <div class="overflow-hidden rounded-lg border border-white/10 bg-zinc-900">
-                    <img src="kymi6.jpg" alt="Kymi 6" class="zoom-img w-full h-48 object-cover">
-                </div>
-                <div class="overflow-hidden rounded-lg border border-white/10 bg-zinc-900">
-                    <img src="kymi7.jpg" alt="Kymi 7" class="zoom-img w-full h-48 object-cover">
-                </div>
-                <div class="overflow-hidden rounded-lg border border-white/10 bg-zinc-900">
-                    <img src="kymi8.jpeg" alt="Kymi 8" class="zoom-img w-full h-48 object-cover">
-                </div>
-                <div class="overflow-hidden rounded-lg border border-white/10 bg-zinc-900">
-                    <img src="kymi9.jpeg" alt="Kymi 9" class="zoom-img w-full h-48 object-cover">
-                </div>
-                <div class="overflow-hidden rounded-lg border border-white/10 bg-zinc-900">
-                    <img src="kymi10.jpg" alt="Kymi 10" class="zoom-img w-full h-48 object-cover">
-                </div>
+            <h2 class="text-4xl font-black uppercase italic mb-16 tracking-tight text-center">Visual <span class="text-red-600">Feed</span></h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+                <div class="img-container"><img src="kymi1.jpeg" class="zoom-img w-full h-40 object-cover border border-white/10"></div>
+                <div class="img-container"><img src="kymi2.jpg" class="zoom-img w-full h-40 object-cover border border-white/10"></div>
+                <div class="img-container"><img src="kymi3.jpg" class="zoom-img w-full h-40 object-cover border border-white/10"></div>
+                <div class="img-container"><img src="kymi4.jpg" class="zoom-img w-full h-40 object-cover border border-white/10"></div>
+                <div class="img-container"><img src="kymi5.jpeg" class="zoom-img w-full h-40 object-cover border border-white/10"></div>
+                <div class="img-container"><img src="kymi6.jpg" class="zoom-img w-full h-40 object-cover border border-white/10"></div>
+                <div class="img-container"><img src="kymi7.jpg" class="zoom-img w-full h-40 object-cover border border-white/10"></div>
+                <div class="img-container"><img src="kymi8.jpeg" class="zoom-img w-full h-40 object-cover border border-white/10"></div>
+                <div class="img-container"><img src="kymi9.jpeg" class="zoom-img w-full h-40 object-cover border border-white/10"></div>
+                <div class="img-container"><img src="kymi10.jpg" class="zoom-img w-full h-40 object-cover border border-white/10"></div>
             </div>
+            <p class="text-zinc-600 text-[10px] text-center mt-12 uppercase tracking-widest italic">Hover to enlarge</p>
         </div>
     </section>
 
@@ -87,86 +92,11 @@
         </div>
     </section>
 
-    <section class="py-20 bg-black relative z-20">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl font-black uppercase italic mb-10 text-center tracking-tight">More <span class="text-red-600">Videos</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="aspect-video rounded-xl overflow-hidden border border-white/10">
-                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/ZzJjxT-vb3Q" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="aspect-video rounded-xl overflow-hidden border border-white/10">
-                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/ZzJjxT-vb3Q" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="aspect-video rounded-xl overflow-hidden border border-white/10">
-                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/ZzJjxT-vb3Q" frameborder="0" allowfullscreen></iframe>
-                </div>
-            </div>
-            <p class="mt-8 text-center text-zinc-500 text-xs uppercase tracking-widest italic">Check my YouTube channel for more</p>
-        </div>
-    </section>
-
-    <section class="py-20 bg-zinc-900/50 border-y border-white/5 relative z-20">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <p class="text-zinc-500 uppercase tracking-widest text-[10px] font-bold mb-8 italic">Currently Drummer for</p>
-            <div class="flex flex-col md:flex-row items-center justify-center gap-10">
-                <div class="flex flex-col items-center gap-6">
-                    <img src="logo.png" alt="Rock Slaves Logo" class="h-24 md:h-32 opacity-90 hover:opacity-100 transition duration-300">
-                    <a href="https://mmamsn-bit.github.io/rock-slaves-site/" target="_blank" class="text-[10px] bg-red-600/10 hover:bg-red-600 text-white py-3 px-6 rounded-full uppercase tracking-widest transition duration-300 border border-red-600/50 font-bold">
-                        Accéder au site & vidéos du groupe
-                    </a>
-                </div>
-                <div class="text-left">
-                    <h3 class="text-3xl font-bold text-white uppercase italic tracking-wider leading-tight">Rock Slaves<br><span class="text-red-600">- CF Power Trio -</span></h3>
-                    <p class="text-zinc-500 text-sm italic uppercase tracking-widest font-light mt-2">Full Power Rock Trio Band</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-24 bg-zinc-900 relative z-20 text-center md:text-left">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-5xl font-black uppercase italic mb-16 text-center tracking-tight text-white">The <span class="text-red-600">Gear</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div class="p-10 border border-white/5 rounded-3xl bg-black/40 hover:border-red-600/30 transition duration-500 shadow-xl">
-                    <h3 class="text-red-600 text-2xl font-bold uppercase mb-6 tracking-widest border-b border-red-600/20 pb-2 italic">Drum Kit & Hardware</h3>
-                    <p class="text-white font-black text-xl mb-4 uppercase italic">Mapex Mars Pro Kit</p>
-                    <ul class="text-zinc-400 text-sm space-y-3 uppercase font-medium tracking-wide">
-                        <li>• Snare: <span class="text-white">14" x 6.5 Sonor 4000 White Edition Pro</span></li>
-                        <li>• Toms: <span class="text-white">10" / 12" / 16"</span></li>
-                        <li>• Bass Drum: <span class="text-white">22"</span></li>
-                        <li>• Hardware: <span class="text-white">Double Pédale DW 5002</span></li>
-                    </ul>
-                </div>
-                <div class="p-10 border border-white/5 rounded-3xl bg-black/40 hover:border-red-600/30 transition duration-500 shadow-xl">
-                    <h3 class="text-red-600 text-2xl font-bold uppercase mb-6 tracking-widest border-b border-red-600/20 pb-2 italic text-center md:text-left">Cymbals Set</h3>
-                    <ul class="text-zinc-400 text-sm space-y-3 uppercase font-medium tracking-wide">
-                        <li>• Hi-Hat 14": <span class="text-white">Sabian AA Rock</span></li>
-                        <li>• 2x Crash 16": <span class="text-white">Zildjian A Custom</span></li>
-                        <li>• Ride 22": <span class="text-white">Sabian AA</span></li>
-                        <li>• China 18": <span class="text-white">Sabian AA</span></li>
-                        <li>• Splash 12": <span class="text-white">Zildjian A Custom</span></li>
-                        <li>• Splash 10": <span class="text-white">Sabian AA</span></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <footer class="py-24 text-center bg-black border-t border-zinc-900 relative z-20 w-full">
         <div class="max-w-4xl mx-auto px-4">
             <img src="kymi.png" class="h-24 mx-auto opacity-50 mb-8" alt="Kymi Logo">
             <div class="space-y-4 text-center">
                 <p class="text-zinc-500 text-[10px] uppercase tracking-[0.6em] font-bold italic">© 2026 KYMIDRUMSPROD | KYMI DRUMMER</p>
-                <div class="flex flex-wrap justify-center gap-6 text-[9px] uppercase tracking-widest text-zinc-600 font-black">
-                    <p>Performance</p>
-                    <span class="text-red-600">•</span>
-                    <p>Session</p>
-                    <span class="text-red-600">•</span>
-                    <p>Production</p>
-                </div>
-                <p class="text-zinc-700 text-[9px] uppercase tracking-[0.4em] pt-8 italic leading-relaxed">
-                    Booking: <span class="text-zinc-400">liquidten8072403@gmail.com</span>
-                </p>
             </div>
         </div>
     </footer>
