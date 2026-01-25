@@ -10,6 +10,10 @@
         h1, h2, h3 { font-family: 'Oswald', sans-serif; }
         body { background-color: #000; color: white; font-family: 'Inter', sans-serif; margin: 0; padding: 0; overflow-x: hidden; }
         .text-neon { text-shadow: 0 0 15px rgba(220,38,38,0.6); }
+        
+        /* Style pour l'effet de zoom fluide sur les photos */
+        .zoom-img { transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        .zoom-img:hover { transform: scale(1.15); z-index: 10; }
     </style>
 </head>
 <body>
@@ -36,6 +40,71 @@
         </div>
     </header>
 
+    <section class="py-24 bg-black relative z-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl font-black uppercase italic mb-12 tracking-tight text-center">The <span class="text-red-600">Gallery</span></h2>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                <div class="overflow-hidden rounded-lg border border-white/10 bg-zinc-900">
+                    <img src="kymi1.jpg" alt="Kymi 1" class="zoom-img w-full h-48 object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg border border-white/10 bg-zinc-900">
+                    <img src="kymi2.jpg" alt="Kymi 2" class="zoom-img w-full h-48 object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg border border-white/10 bg-zinc-900">
+                    <img src="kymi3.jpg" alt="Kymi 3" class="zoom-img w-full h-48 object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg border border-white/10 bg-zinc-900">
+                    <img src="kymi4.jpg" alt="Kymi 4" class="zoom-img w-full h-48 object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg border border-white/10 bg-zinc-900">
+                    <img src="kymi5.jpg" alt="Kymi 5" class="zoom-img w-full h-48 object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg border border-white/10 bg-zinc-900">
+                    <img src="kymi6.jpg" alt="Kymi 6" class="zoom-img w-full h-48 object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg border border-white/10 bg-zinc-900">
+                    <img src="kymi7.jpg" alt="Kymi 7" class="zoom-img w-full h-48 object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg border border-white/10 bg-zinc-900">
+                    <img src="kymi8.jpg" alt="Kymi 8" class="zoom-img w-full h-48 object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg border border-white/10 bg-zinc-900">
+                    <img src="kymi9.jpg" alt="Kymi 9" class="zoom-img w-full h-48 object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg border border-white/10 bg-zinc-900">
+                    <img src="kymi10.jpg" alt="Kymi 10" class="zoom-img w-full h-48 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-zinc-900/30 relative z-20">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-black uppercase italic mb-12 tracking-tight text-neon">Latest <span class="text-red-600">Drum Cam</span></h2>
+            <div class="max-w-4xl mx-auto aspect-video bg-zinc-900 rounded-3xl overflow-hidden border border-red-600/30 shadow-[0_0_60px_rgba(220,38,38,0.15)]">
+                <iframe class="w-full h-full" src="https://www.youtube.com/embed/ZzJjxT-vb3Q" title="Kymi Drummer - Blues Express 2025" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-black relative z-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl font-black uppercase italic mb-10 text-center tracking-tight">More <span class="text-red-600">Videos</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="aspect-video rounded-xl overflow-hidden border border-white/10">
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/ZzJjxT-vb3Q" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="aspect-video rounded-xl overflow-hidden border border-white/10">
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/ZzJjxT-vb3Q" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="aspect-video rounded-xl overflow-hidden border border-white/10">
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/ZzJjxT-vb3Q" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <p class="mt-8 text-center text-zinc-500 text-xs uppercase tracking-widest italic">Check my YouTube channel for more</p>
+        </div>
+    </section>
+
     <section class="py-20 bg-zinc-900/50 border-y border-white/5 relative z-20">
         <div class="max-w-4xl mx-auto px-6 text-center">
             <p class="text-zinc-500 uppercase tracking-widest text-[10px] font-bold mb-8 italic">Currently Drummer for</p>
@@ -54,19 +123,9 @@
         </div>
     </section>
 
-    <section class="py-24 bg-black relative z-20">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <h2 class="text-4xl font-black uppercase italic mb-12 tracking-tight text-neon">Latest <span class="text-red-600">Drum Cam</span></h2>
-            <div class="max-w-4xl mx-auto aspect-video bg-zinc-900 rounded-3xl overflow-hidden border border-red-600/30 shadow-[0_0_60px_rgba(220,38,38,0.15)]">
-                <iframe class="w-full h-full" src="https://www.youtube.com/embed/ZzJjxT-vb3Q" title="Kymi Drummer - Blues Express 2025" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-    </section>
-
     <section class="py-24 bg-zinc-900 relative z-20 text-center md:text-left">
         <div class="max-w-6xl mx-auto px-6">
             <h2 class="text-5xl font-black uppercase italic mb-16 text-center tracking-tight text-white">The <span class="text-red-600">Gear</span></h2>
-            
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div class="p-10 border border-white/5 rounded-3xl bg-black/40 hover:border-red-600/30 transition duration-500 shadow-xl">
                     <h3 class="text-red-600 text-2xl font-bold uppercase mb-6 tracking-widest border-b border-red-600/20 pb-2 italic">Drum Kit & Hardware</h3>
@@ -78,7 +137,6 @@
                         <li>• Hardware: <span class="text-white">Double Pédale DW 5002</span></li>
                     </ul>
                 </div>
-
                 <div class="p-10 border border-white/5 rounded-3xl bg-black/40 hover:border-red-600/30 transition duration-500 shadow-xl">
                     <h3 class="text-red-600 text-2xl font-bold uppercase mb-6 tracking-widest border-b border-red-600/20 pb-2 italic text-center md:text-left">Cymbals Set</h3>
                     <ul class="text-zinc-400 text-sm space-y-3 uppercase font-medium tracking-wide">
